@@ -1,7 +1,26 @@
-# Vue 3 + Vite
+本次開發為使用全空白的最新vue3專案格式進行，套件的使用vfm,pinia,pinia-persistedstate輔助進行。
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+vfm為一個高度自由化的彈窗modal，我是在youtube直播中有幸聽到原作者講解其開發理念轉而使用這個套件的。
 
-## Recommended IDE Setup
+pinia為相較於vuex好用許多的狀態管理工具。
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+pinia-persistedstate則是在之前專案經驗使用過可以確保登入狀態不因開新分頁或刷新而被洗掉的套件，剛好符合這次的需求。
+
+本次筆記簡易版實作包含以下功能:
+1.新增筆記
+-檢查標題和內文是否為空，若為空則跳出errorMessage並return，若皆有值則發出emit事件上層並跳出提示框
+-reset所有筆記開啟編輯狀態，使新增的那一筆為開啟，方便使用者聚焦
+2.筆記展開收合
+-依照開合情況顯示不同icon
+-同時間只能展開一筆記，透過每個筆記內的屬性值isOpen進行控制
+3.筆記編輯
+-透過每個筆記內isEditing進行控制，在展開每個筆記時會對isEditing進行reset確保使用者不會操作錯誤
+4.筆記刪除
+-刪除後跳出提示訊息
+5.拖拉
+-運用原生drag原理做出簡易拖拉，並在拖拉完成時跳出提示訊息
+6.store的運用
+-這次使用pinia來存取筆記的狀態，並已套件確保狀態在同裝置上不丟失
+-運用watch即時將最新的筆記狀態寫回pinia中
+
+感謝觀看
